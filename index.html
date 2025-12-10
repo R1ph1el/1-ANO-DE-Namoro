@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Áurea & Raphael — 1 Ano de Namoro</title>
+<style>
+  /* Base */
+  body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #faefe9;
+    color: #5a3b2e;
+  }
+  header {
+    text-align:center;
+    padding:40px 20px;
+    background: linear-gradient(#faefe9,#f7e5e1);
+    position: relative;
+    overflow: visible;
+  }
+  h1{font-size:2.4rem;margin:8px 0}
+  h2{font-size:1.6rem;margin:6px 0 12px}
+  p{max-width:700px;margin:8px auto;line-height:1.5}
+
+  /* photo */
+  .photo-circle{
+    width: 400px;height: 400px;object-fit:cover;border-radius:50%;
+    border:6px solid #fff5f5;box-shadow:0 4px 12px rgba(0,0,0,0.08);display:block;margin:18px auto;
+  }
+
+  /* buttons */
+  .btns{margin-top:14px}
+  .btns button{padding:10px 18px;border-radius:10px;border:none;background:#e8b7b7;cursor:pointer;margin:6px}
+
+ 
+  /* falling hearts */
+  .falling-heart{position:fixed;top:-10px;color:#ee446e;font-size:20px;animation:fall linear infinite;opacity:0.85;z-index:9999;pointer-events:none}
+  @keyframes fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(120vh) rotate(360deg);opacity:0}}
+
+
+  /* container / cards */
+  .container{width:92%;max-width:980px;margin:20px auto;padding:10px}
+  .card{background:#fff9f9;padding:22px;border-radius:14px;margin-bottom:22px;box-shadow:0 4px 14px rgba(0,0,0,0.06)}
+
+  /* carousel */
+  .carousel-wrap{width:100%;max-width:900px;margin:0 auto;position:relative}
+  .carousel{overflow:hidden;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+  .carousel-track{display:flex;transition:transform .6s cubic-bezier(.22,.9,.28,1);will-change:transform}
+  .carousel-track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;display:block}
+  .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(179,0,89,0.95);color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:24px;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 18px rgba(179,0,89,0.15)}
+  .carousel-btn:active{transform:translateY(-50%) scale(.98)}
+  .prev{left:12px}.next{right:12px}
+
+  .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+  .dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,0.15);cursor:pointer;transition:all .25s}
+  .dot.active{transform:scale(1.25);background:#b30059;box-shadow:0 3px 8px rgba(179,0,89,0.18)}
+
+  @media(max-width:700px){
+    .carousel-track img{height:260px}
+    .carousel-btn{width:40px;height:40px}
+    .photo-circle{width:140px;height:140px}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Aurea & Raphael</h1>
+    <h2>1 ANO DE NAMORO</h2>
+    
+    <img src="foto1.jpg" class="photo-circle" alt="Foto do casal">
+    <p>Não te dei uma carta, mas fiz meu melhor pra você perceber que TE AMO.</p>
+
+    <div class="btns">
+      <button onclick="verGaleria()">Ver Galeria</button>
+      <!-- PLAYER OCULTO -->
+<audio id="musica" preload="auto">
+    <source src="semMEDO.mp3" type="audio/mpeg">
+</audio>
+
+<!-- BOTÃO PARA TOCAR A MÚSICA -->
+<button onclick="document.getElementById('musica').play();" 
+        style="
+            padding: 12px 20px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        ">
+    ❤️ Tocar Música ❤️
+</button>
+
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Dias juntos</h2>
+      <p style="font-size:1.6rem;text-align:center;margin:14px 0">365 dias 💗</p>
+      <p style="text-align:center">Desde: 17 de dezembro de 2024</p>
+    </div>
+
+    <div class="card">
+      <h2>Mensagens</h2>
+      <p><strong>Raphael:</strong> Áurea, cada dia com você faz sentido. Obrigado por ser minha parceira.</p>
+    </div>
+
+    <!-- GALERIA: use id único "galeria-section" para rolar até aqui -->
+    <div class="card" id="galeria-section">
+      <h2 style="text-align:center;color:#b30059;margin-bottom:12px">Nossa Galeria ❤️</h2>
+
+      <div class="carousel-wrap">
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carousel-track">
+            <!-- Substitua por seus arquivos colocados na mesma pasta que o HTML -->
+            <img src="foto16.jpg" alt="1">
+            <img src="foto15.jpg" alt="2">
+            <img src="foto14.jpg" alt="3">
+            <img src="foto13.jpg" alt="4">
+            <img src="foto12.jpg" alt="5">
+            <img src="foto10.jpg" alt="6">
+            <img src="foto9.jpg"alt="7">
+            <img src="foto6.jpg" alt="8">
+            <img src="foto4.jpg" alt="9">
+            <img src="foto3.jpg" alt="10">
+            <img src="foto2.jpg" alt="10">
+            <img src="foto8.jpg" alt="10">
+          </div>
+        </div>
+
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">‹</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Próximo">›</button>
+
+        <div class="dots" id="dots" aria-hidden="false"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  /* ====== função rolar para galeria ====== */
+  function verGaleria() {
+    const gal = document.getElementById('galeria-section');
+    if(!gal) return console.error('galeria-section nao encontrada');
+    const topPos = gal.getBoundingClientRect().top + window.pageYOffset - 20;
+    window.scrollTo({top: topPos, behavior: 'smooth'});
+  }
+
+  /* ====== criar corações caindo ====== */
+  function criarCoracao() {
+    const heart = document.createElement('div');
+    heart.className = 'falling-heart';
+    heart.textContent = '❤';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (12 + Math.random()*30) + 'px';
+    heart.style.animationDuration = (3 + Math.random()*5) + 's';
+    document.body.appendChild(heart);
+    setTimeout(()=> heart.remove(), 9000);
+  }
+  setInterval(criarCoracao, 450);
+
+  /* ====== CARROSSEL FUNCIONAL ====== */
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('dots');
+
+    if(slides.length === 0) return;
+
+    // criar dots
+    slides.forEach((_,i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i===0 ? ' active' : '');
+      d.dataset.index = i;
+      d.addEventListener('click', () => {
+        goToSlide(i);
+        resetAutoplay();
+      });
+      dotsContainer.appendChild(d);
+    });
+    const dots = Array.from(dotsContainer.children);
+
+    let index = 0;
+    let autoplay = true;
+    const autoplayInterval = 3000;
+    let timer = null;
+
+    function update() {
+      // movemos o track por percent relativo ao número de slides
+      const shift = index * (100);
+      // para deslocar uma "fração correta", usamos translateX(-index * 100%) no container de slides:
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot,i) => dot.classList.toggle('active', i===index));
+    }
+
+    function goToSlide(i) {
+      index = (i + slides.length) % slides.length;
+      update();
+    }
+
+    nextBtn.addEventListener('click', () => { goToSlide(index+1); resetAutoplay(); });
+    prevBtn.addEventListener('click', () => { goToSlide(index-1); resetAutoplay(); });
+
+    function startAutoplay(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(()=> goToSlide(index+1), autoplayInterval);
+      autoplay = true;
+    }
+    function stopAutoplay(){
+      if(timer) clearInterval(timer);
+      timer = null;
+      autoplay = false;
+    }
+    function resetAutoplay(){ if(autoplay){ stopAutoplay(); startAutoplay(); } }
+
+    // permitir swipe/drag
+    let startX = 0, isDown = false;
+    track.addEventListener('pointerdown', e => { isDown=true; startX=e.clientX; track.style.transition='none'; if(timer) clearInterval(timer); });
+    track.addEventListener('pointerup', e => {
+      if(!isDown) return;
+      isDown=false; track.style.transition=''; const diff = e.clientX - startX;
+      if(diff < -40) goToSlide(index+1); else if(diff > 40) goToSlide(index-1);
+      resetAutoplay();
+    });
+    track.addEventListener('pointercancel', ()=>{ isDown=false; track.style.transition=''; resetAutoplay(); });
+
+    // iniciar
+    update();
+    startAutoplay();
+    // ajustar ao redimensionar (não estritamente necessário mas seguro)
+    window.addEventListener('resize', update);
+  });
+  </script>
+</body>
+</html>
